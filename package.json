@@ -1,0 +1,11 @@
+{
+  "name": "bookgo",
+  "version": "1.0.0",
+  "description": "Place where you can chat about books",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
