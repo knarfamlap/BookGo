@@ -1,19 +1,31 @@
-
 const express = require('express')
 const app = express()
-const path = require('path')
-const bodyParser = require('body-parser')
 const port = 3000
+const router = express.Router();
+const path = __dirname + "/";
 
-require('./controllers/posts.js')(app)
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+router.use(function(req , res, next){
+  console.log("/" + req.method);
+  next();
 });
 
-app.get('/posts/new', function(req, res){
-  res.sendFile(path.join(__dirname + '/templates/post-new.html'))
-})
+
+app.get('/', function(req, res) {
+    res.sendFile(path + "index.html");
+});
+
+app.get('/about', function(req, res){
+  res.sendFile(path + "about.html");
+});
+
+app.get('/contact', function(req, res) {
+  res.sendFile(path + "contact.html");
+});
+
+app.use("/", router);
+
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
